@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Colors are stored as "R G B" channels so Tailwind opacity modifiers work. */
+:root {
+  --bg: 247 245 239;
+  --fg: 12 12 12;
+  --card: 255 255 255;
+  --border: 228 223 208;
+  --muted: 107 102 89;
+  --gold: 168 132 28;
+  --neon: 0 150 214;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: 10 10 10;
+  --fg: 244 241 232;
+  --card: 19 19 19;
+  --border: 42 38 32;
+  --muted: 163 157 140;
+  --gold: 212 175 55;
+  --neon: 30 240 255;
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-bg text-fg font-sans;
+  }
+  :focus-visible {
+    outline: 2px solid rgb(var(--neon));
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
+}
